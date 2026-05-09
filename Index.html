@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>UFC 328 • Quick Breakdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
+        
+        :root {
+            --primary: #e11d48;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .font-display {
+            font-family: 'Space Grotesk', 'Inter', system_ui, sans-serif;
+            font-weight: 600;
+        }
+
+        .ufc-red {
+            color: #e11d48;
+        }
+
+        .fight-card {
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), 
+                       box-shadow 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+        
+        .fight-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 
+                       0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .fighter-panel {
+            transition: all 0.2s ease;
+        }
+
+        .section-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(12px);
+        }
+
+        .stat-pill {
+            background: rgba(225, 29, 72, 0.1);
+            color: #e11d48;
+            font-size: 0.75rem;
+            padding: 1px 8px;
+            border-radius: 9999px;
+            font-weight: 600;
+        }
+
+        .vs-divider {
+            position: relative;
+        }
+        
+        .vs-divider::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 42px;
+            height: 42px;
+            background: #18181b;
+            border: 3px solid #e11d48;
+            border-radius: 9999px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.75rem;
+            color: #e11d48;
+        }
+
+        .mobile-stack {
+            @media (max-width: 768px) {
+                flex-direction: column;
+            }
+        }
+
+        .record {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .quick-stat {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-200">
+    <!-- Header -->
+    <header class="bg-zinc-900 border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-11 h-11 bg-red-600 rounded-2xl flex items-center justify-center shadow-inner">
+                    <span class="text-white text-3xl font-black tracking-tighter">UFC</span>
+                </div>
+                <div>
+                    <h1 class="font-display text-3xl font-extrabold tracking-tighter">UFC 328</h1>
+                    <p class="text-xs text-zinc-400 -mt-1">MAY 9, 2026 • EVENT DAY</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-x-2">
+                <div class="px-3 py-1.5 bg-zinc-900 border border-red-600/30 rounded-3xl flex items-center gap-x-2">
+                    <div class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                    <span class="text-red-400 text-xs font-semibold tracking-[0.5px]">LIVE</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-3xl mx-auto px-4 pt-6 pb-24">
+        
+        <!-- Hero -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center gap-x-2 bg-zinc-900 px-4 py-1 rounded-3xl border border-zinc-700 mb-3">
+                <i class="fa-solid fa-globe text-red-500"></i>
+                <span class="text-xs uppercase tracking-[1px] font-semibold">T-Mobile Arena • Las Vegas</span>
+            </div>
+            <h2 class="font-display text-5xl font-black tracking-tighter mb-1">FIGHT CARD</h2>
+            <p class="text-zinc-400 text-lg">Quick mobile breakdown • Tap any fight for details</p>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="grid grid-cols-3 gap-3 mb-8">
+            <div class="bg-zinc-900 rounded-3xl p-4 text-center border border-zinc-800">
+                <div class="text-3xl font-black text-white">13</div>
+                <div class="text-xs text-zinc-400">BOUTS</div>
+            </div>
+            <div class="bg-zinc-900 rounded-3xl p-4 text-center border border-zinc-800">
+                <div class="text-3xl font-black text-white">2</div>
+                <div class="text-xs text-zinc-400">WORLD TITLES</div>
+            </div>
+            <div class="bg-zinc-900 rounded-3xl p-4 text-center border border-zinc-800">
+                <div class="text-3xl font-black text-white">26</div>
+                <div class="text-xs text-zinc-400">FIGHTERS</div>
+            </div>
+        </div>
+
+        <!-- MAIN CARD -->
+        <div class="mb-10">
+            <div class="flex items-center gap-x-3 mb-4 px-1">
+                <div class="flex-1 h-px bg-gradient-to-r from-transparent to-red-600/40"></div>
+                <div class="px-5 py-1 bg-red-600 text-white text-sm font-black tracking-[1px] rounded-3xl flex items-center gap-x-2 shadow-lg shadow-red-950">
+                    <i class="fa-solid fa-tachometer-alt"></i>
+                    <span>MAIN CARD</span>
+                </div>
+                <div class="flex-1 h-px bg-gradient-to-l from-transparent to-red-600/40"></div>
+            </div>
+
+            <!-- Fight 1: Chimaev vs Strickland -->
+            <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-5 mb-4 shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="px-3 py-1 text-xs font-bold bg-yellow-500 text-black rounded-2xl">WORLD MIDDLEWEIGHT TITLE</span>
+                    </div>
+                    <div class="text-xs text-zinc-400">5 Rounds • 185 lbs</div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                    <!-- Khamzat -->
+                    <div class="md:col-span-2 fighter-panel bg-zinc-950 rounded-2xl p-4 border border-zinc-800">
+                        <div class="flex items-center gap-x-3">
+                            <div>
+                                <div class="font-bold text-xl">Khamzat Chimaev</div>
+                                <div class="flex items-center gap-x-2">
+                                    <span class="text-emerald-400 font-mono text-sm">"Borz"</span>
+                                    <span class="stat-pill">15-0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-sm text-zinc-300 leading-tight">
+                            Chechen phenom. Elite freestyle wrestling + BJJ black belt. 
+                            Explosive pressure, smothering top control, 6 KOs + 6 subs.
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Wrestling</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Sambo</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">BJJ</span>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-1 flex justify-center items-center py-2">
+                        <div class="vs-divider w-11 h-11 flex items-center justify-center">
+                            <span class="font-black text-red-600 text-sm tracking-tighter z-20">VS</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Strickland -->
+                    <div class="md:col-span-2 fighter-panel bg-zinc-950 rounded-2xl p-4 border border-zinc-800">
+                        <div class="flex items-center gap-x-3">
+                            <div>
+                                <div class="font-bold text-xl">Sean Strickland</div>
+                                <div class="flex items-center gap-x-2">
+                                    <span class="text-emerald-400 font-mono text-sm"></span>
+                                    <span class="stat-pill">30-7</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-sm text-zinc-300 leading-tight">
+                            Former champ. High-volume orthodox striker with elite defense &amp; pace. 
+                            12 KOs. Iron chin, mental toughness.
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Striking</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">BJJ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fight 2: Van vs Taira -->
+            <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-5 mb-4 shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="px-3 py-1 text-xs font-bold bg-yellow-500 text-black rounded-2xl">WORLD FLYWEIGHT TITLE</span>
+                    </div>
+                    <div class="text-xs text-zinc-400">5 Rounds • 125 lbs</div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                    <div class="md:col-span-2 fighter-panel bg-zinc-950 rounded-2xl p-4 border border-zinc-800">
+                        <div>
+                            <div class="font-bold text-xl">Joshua Van</div>
+                            <div class="flex items-center gap-x-2">
+                                <span class="text-emerald-400 font-mono text-sm">"The Fearless"</span>
+                                <span class="stat-pill">16-2</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-sm text-zinc-300 leading-tight">
+                            Youngest UFC flyweight champ ever. Aggressive high-volume striker (8 KOs). 
+                            Explosive pressure, improving grappling. No traditional background — pure MMA.
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Striking</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">MMA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-1 flex justify-center items-center py-2">
+                        <div class="vs-divider w-11 h-11 flex items-center justify-center">
+                            <span class="font-black text-red-600 text-sm tracking-tighter z-20">VS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-2 fighter-panel bg-zinc-950 rounded-2xl p-4 border border-zinc-800">
+                        <div>
+                            <div class="font-bold text-xl">Tatsuro Taira</div>
+                            <div class="flex items-center gap-x-2">
+                                <span class="text-emerald-400 font-mono text-sm">"The Best"</span>
+                                <span class="stat-pill">18-1</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-sm text-zinc-300 leading-tight">
+                            Technical Japanese star. Shooto + karate roots. Elite submissions (8 subs). 
+                            Composed, high finish rate, purple belt BJJ.
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Grappling</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Shooto</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">BJJ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fight 3: Volkov vs Cortes-Acosta -->
+            <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-5 mb-4 shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="px-3 py-1 text-xs font-bold bg-zinc-700 text-white rounded-2xl">HEAVYWEIGHT</span>
+                    </div>
+                    <div class="text-xs text-zinc-400">3 Rounds • 265 lbs</div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                    <div class="md:col-span-2 fighter-panel bg-zinc-950 rounded-2xl p-4 border border-zinc-800">
+                        <div>
+                            <div class="font-bold text-xl">Alexander Volkov</div>
+                            <div class="flex items-center gap-x-2">
+                                <span class="text-emerald-400 font-mono text-sm">"Drago"</span>
+                                <span class="stat-pill">39-11</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-sm text-zinc-300 leading-tight">
+                            6'7" Russian kickboxing specialist. Long-range jabs, kicks, distance management. 
+                            Veteran power + experience. Sambo background.
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Kickboxing</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Sambo</span>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-1 flex justify-center items-center py-2">
+                        <div class="vs-divider w-11 h-11 flex items-center justify-center">
+                            <span class="font-black text-red-600 text-sm tracking-tighter z-20">VS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-2 fighter-panel bg-zinc-950 rounded-2xl p-4 border border-zinc-800">
+                        <div>
+                            <div class="font-bold text-xl">Waldo Cortes-Acosta</div>
+                            <div class="flex items-center gap-x-2">
+                                <span class="text-emerald-400 font-mono text-sm">"Salsa Boy"</span>
+                                <span class="stat-pill">17-2</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-sm text-zinc-300 leading-tight">
+                            Dominican power puncher. Aggressive forward pressure, knockout power, athleticism. 
+                            Improving grappling but stands and bangs.
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Power Striking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fight 4: Brady vs Buckley -->
+            <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-5 mb-4 shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="px-3 py-1 text-xs font-bold bg-zinc-700 text-white rounded-2xl">WELTERWEIGHT</span>
+                    </div>
+                    <div class="text-xs text-zinc-400">3 Rounds • 170 lbs</div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                    <div class="md:col-span-2 fighter-panel bg-zinc-950 rounded-2xl p-4 border border-zinc-800">
+                        <div>
+                            <div class="font-bold text-xl">Sean Brady</div>
+                            <div class="flex items-center gap-x-2">
+                                <span class="stat-pill">18-2</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-sm text-zinc-300 leading-tight">
+                            Renzo Gracie BJJ black belt. Elite grappler with strong wrestling base. 
+                            Suffocating top control and submission threat.
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">BJJ</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Wrestling</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Muay Thai</span>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-1 flex justify-center items-center py-2">
+                        <div class="vs-divider w-11 h-11 flex items-center justify-center">
+                            <span class="font-black text-red-600 text-sm tracking-tighter z-20">VS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-2 fighter-panel bg-zinc-950 rounded-2xl p-4 border border-zinc-800">
+                        <div>
+                            <div class="font-bold text-xl">Joaquin Buckley</div>
+                            <div class="flex items-center gap-x-2">
+                                <span class="stat-pill">21-7</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-sm text-zinc-300 leading-tight">
+                            Explosive southpaw striker. Viral KO power. High school wrestling base. 
+                            Creative, athletic finisher.
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Striking</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Wrestling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fight 5: Green vs Stephens -->
+            <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-5 mb-4 shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <span class="px-3 py-1 text-xs font-bold bg-zinc-700 text-white rounded-2xl">LIGHTWEIGHT</span>
+                    </div>
+                    <div class="text-xs text-zinc-400">3 Rounds • 155 lbs</div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+                    <div class="md:col-span-2 fighter-panel bg-zinc-950 rounded-2xl p-4 border border-zinc-800">
+                        <div>
+                            <div class="font-bold text-xl">Bobby "King" Green</div>
+                            <div class="flex items-center gap-x-2">
+                                <span class="stat-pill">34-17-1 (1 NC)</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-sm text-zinc-300 leading-tight">
+                            Veteran flashy technical striker. High output, creative movement. 
+                            Good BJJ/submissions. Durable warhorse.
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Striking</span>
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">BJJ</span>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-1 flex justify-center items-center py-2">
+                        <div class="vs-divider w-11 h-11 flex items-center justify-center">
+                            <span class="font-black text-red-600 text-sm tracking-tighter z-20">VS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="md:col-span-2 fighter-panel bg-zinc-950 rounded-2xl p-4 border border-zinc-800">
+                        <div>
+                            <div class="font-bold text-xl">Jeremy "Lil Heathen" Stephens</div>
+                            <div class="flex items-center gap-x-2">
+                                <span class="stat-pill">29-22 (1 NC)</span>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-sm text-zinc-300 leading-tight">
+                            Long-time KO artist. Heavy hands and legs. Aggressive pressure fighter. 
+                            Extremely durable veteran.
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="text-[10px] px-2 py-0.5 bg-zinc-800 rounded">Power Striking</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRELIMS -->
+        <div>
+            <div class="flex items-center gap-x-3 mb-4 px-1">
+                <div class="flex-1 h-px bg-gradient-to-r from-transparent to-red-600/40"></div>
+                <div class="px-5 py-1 bg-zinc-700 text-white text-sm font-black tracking-[1px] rounded-3xl flex items-center gap-x-2">
+                    <i class="fa-solid fa-list"></i>
+                    <span>PRELIMS</span>
+                </div>
+                <div class="flex-1 h-px bg-gradient-to-l from-transparent to-red-600/40"></div>
+            </div>
+
+            <!-- Prelim fights - more compact -->
+            <div class="space-y-3">
+                
+                <!-- Prelim 1 -->
+                <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold px-2.5 py-0.5 bg-zinc-700 rounded-xl">MIDDLEWEIGHT</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3 items-center text-sm">
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Ateba Gautier <span class="text-emerald-400 text-xs">(10-1)</span></div>
+                            <div class="text-xs text-zinc-400">Tall explosive KO artist • Boxing/wrestling • Cameroon</div>
+                        </div>
+                        <div class="hidden md:flex justify-center"><span class="text-red-600 text-xs font-black">VS</span></div>
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Ozzy Diaz <span class="text-emerald-400 text-xs">(10-3)</span></div>
+                            <div class="text-xs text-zinc-400">Well-rounded veteran • Boxing + BJJ + wrestling • USA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prelim 2 -->
+                <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold px-2.5 py-0.5 bg-zinc-700 rounded-xl">WELTERWEIGHT</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3 items-center text-sm">
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Joel Alvarez <span class="text-emerald-400 text-xs">(23-3)</span></div>
+                            <div class="text-xs text-zinc-400">Tall BJJ-heavy grappler • High sub rate • Spain</div>
+                        </div>
+                        <div class="hidden md:flex justify-center"><span class="text-red-600 text-xs font-black">VS</span></div>
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Yaroslav Amosov <span class="text-emerald-400 text-xs">(29-1)</span></div>
+                            <div class="text-xs text-zinc-400">Elite wrestling/sambo • Former Bellator champ • Ukraine</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prelim 3 -->
+                <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold px-2.5 py-0.5 bg-zinc-700 rounded-xl">LIGHTWEIGHT</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3 items-center text-sm">
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Grant Dawson <span class="text-emerald-400 text-xs">(23-3-1)</span></div>
+                            <div class="text-xs text-zinc-400">Strong wrestling &amp; top control • High finish rate • USA</div>
+                        </div>
+                        <div class="hidden md:flex justify-center"><span class="text-red-600 text-xs font-black">VS</span></div>
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Mateusz Rebecki <span class="text-emerald-400 text-xs">(20-4)</span></div>
+                            <div class="text-xs text-zinc-400">Well-rounded Polish prospect • Grappling + striking</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prelim 4 -->
+                <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold px-2.5 py-0.5 bg-zinc-700 rounded-xl">LIGHTWEIGHT</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3 items-center text-sm">
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Jim Miller <span class="text-emerald-400 text-xs">(38-19)</span></div>
+                            <div class="text-xs text-zinc-400">UFC LW legend • 21+ career subs • BJJ black belt • USA</div>
+                        </div>
+                        <div class="hidden md:flex justify-center"><span class="text-red-600 text-xs font-black">VS</span></div>
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Jared Gordon <span class="text-emerald-400 text-xs">(21-8)</span></div>
+                            <div class="text-xs text-zinc-400">Well-rounded grinder • High volume • Tough • USA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prelim 5 -->
+                <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold px-2.5 py-0.5 bg-zinc-700 rounded-xl">MIDDLEWEIGHT</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3 items-center text-sm">
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Roman Kopylov <span class="text-emerald-400 text-xs">(14-5)</span></div>
+                            <div class="text-xs text-zinc-400">Southpaw KO artist (12 KOs) • Combat sambo • Russia</div>
+                        </div>
+                        <div class="hidden md:flex justify-center"><span class="text-red-600 text-xs font-black">VS</span></div>
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Marco Tulio <span class="text-emerald-400 text-xs">(14-2)</span></div>
+                            <div class="text-xs text-zinc-400">Brazilian prospect • Grappling + striking mix • Athletic</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prelim 6 -->
+                <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold px-2.5 py-0.5 bg-zinc-700 rounded-xl">FEATHERWEIGHT</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3 items-center text-sm">
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Pat Sabatini <span class="text-emerald-400 text-xs">(21-5)</span></div>
+                            <div class="text-xs text-zinc-400">BJJ specialist • High submission wins • Strong wrestling • USA</div>
+                        </div>
+                        <div class="hidden md:flex justify-center"><span class="text-red-600 text-xs font-black">VS</span></div>
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">William Gomis <span class="text-emerald-400 text-xs">(15-3)</span></div>
+                            <div class="text-xs text-zinc-400">Well-rounded finisher • Striking + grappling • Senegal/France</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prelim 7 -->
+                <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold px-2.5 py-0.5 bg-zinc-700 rounded-xl">MIDDLEWEIGHT</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3 items-center text-sm">
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Baisangur Susurkaev <span class="text-emerald-400 text-xs">(11-0)</span></div>
+                            <div class="text-xs text-zinc-400">Undefeated Chechen prospect • Strong wrestling/grappling • DWCS alum</div>
+                        </div>
+                        <div class="hidden md:flex justify-center"><span class="text-red-600 text-xs font-black">VS</span></div>
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Djorden Santos <span class="text-emerald-400 text-xs">(11-2)</span></div>
+                            <div class="text-xs text-zinc-400">Brazilian with grappling + striking • Regional power</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prelim 8 -->
+                <div class="fight-card bg-zinc-900 border border-zinc-700 rounded-3xl p-4">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xs font-bold px-2.5 py-0.5 bg-zinc-700 rounded-xl">FLYWEIGHT</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-3 items-center text-sm">
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Clayton Carpenter <span class="text-emerald-400 text-xs">(8-2)</span></div>
+                            <div class="text-xs text-zinc-400">Well-rounded flyweight prospect • Grappling + striking balance • USA</div>
+                        </div>
+                        <div class="hidden md:flex justify-center"><span class="text-red-600 text-xs font-black">VS</span></div>
+                        <div class="md:col-span-2">
+                            <div class="font-semibold">Jose Ochoa <span class="text-emerald-400 text-xs">(8-2, 1 NC)</span></div>
+                            <div class="text-xs text-zinc-400">Athletic striker/grappler • Tough regional veteran • Peru/USA</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Info -->
+        <div class="mt-10 pt-6 border-t border-zinc-800 text-center">
+            <div class="flex justify-center gap-x-6 text-xs text-zinc-400 mb-4">
+                <div class="flex items-center gap-x-1.5">
+                    <i class="fa-solid fa-info-circle"></i>
+                    <span>Records current as of May 9, 2026</span>
+                </div>
+            </div>
+            
+            <p class="text-[10px] text-zinc-500 max-w-xs mx-auto">
+                Data sourced from UFC.com, ESPN, Sherdog, Tapology &amp; Wikipedia.<br>
+                Fighters evolve into well-rounded MMA styles — these highlight primary bases &amp; signatures.
+            </p>
+            
+            <div class="mt-6">
+                <button onclick="showShareModal()" 
+                        class="inline-flex items-center gap-x-2 px-5 py-2.5 bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-600 transition-colors text-sm font-semibold rounded-3xl border border-zinc-700">
+                    <i class="fa-solid fa-qrcode"></i>
+                    <span>Share with friends (QR)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Share Modal -->
+    <div id="share-modal" onclick="hideShareModal()" class="hidden fixed inset-0 bg-black/80 flex items-end md:items-center justify-center z-[100]">
+        <div onclick="event.stopImmediatePropagation()" class="bg-zinc-900 w-full md:w-[380px] rounded-t-3xl md:rounded-3xl p-6 border-t md:border border-zinc-700">
+            <div class="flex justify-between items-center mb-5">
+                <div>
+                    <h3 class="font-bold text-xl">Share this card</h3>
+                    <p class="text-xs text-zinc-400">Send the QR code to your friends</p>
+                </div>
+                <button onclick="hideShareModal()" class="text-zinc-400 hover:text-white">
+                    <i class="fa-solid fa-times text-2xl"></i>
+                </button>
+            </div>
+            
+            <div class="bg-white p-4 rounded-2xl mx-auto w-fit mb-4">
+                <!-- Fake QR Code -->
+                <div class="w-[180px] h-[180px] bg-zinc-900 flex items-center justify-center relative overflow-hidden">
+                    <div class="text-center">
+                        <i class="fa-solid fa-qrcode text-[120px] text-zinc-800"></i>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="bg-white w-14 h-14 rounded-xl flex items-center justify-center shadow-inner">
+                                <span class="text-red-600 text-[10px] font-black tracking-tighter">UFC<br>328</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mb-4">
+                <p class="text-xs text-zinc-400">This page is a self-contained HTML file.</p>
+                <div class="mt-3 text-[10px] leading-snug text-zinc-500">
+                    <strong>How to share:</strong><br>
+                    1. Save this file as <span class="font-mono">ufc328.html</span><br>
+                    2. Upload to Netlify, Vercel, or GitHub Pages (free)<br>
+                    3. Copy the live URL and generate a real QR code at qr-code-generator.com
+                </div>
+            </div>
+            
+            <button onclick="copyLink()" 
+                    class="w-full py-3 bg-red-600 hover:bg-red-700 active:bg-red-800 transition-colors text-white font-semibold rounded-3xl text-sm flex items-center justify-center gap-x-2">
+                <i class="fa-solid fa-copy"></i>
+                <span>Copy page instructions</span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initializeTailwind() {
+            document.documentElement.style.setProperty('--accent', '#e11d48');
+        }
+        
+        // Modal functions
+        function showShareModal() {
+            document.getElementById('share-modal').classList.remove('hidden');
+            document.getElementById('share-modal').classList.add('flex');
+        }
+        
+        function hideShareModal() {
+            const modal = document.getElementById('share-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+        
+        function copyLink() {
+            const text = `UFC 328 Fight Card - Quick Breakdown\n\n` +
+                        `📱 Mobile-friendly site ready!\n\n` +
+                        `How to get your own QR code:\n` +
+                        `1. Save this HTML file\n` +
+                        `2. Host it for free at netlify.com or vercel.com\n` +
+                        `3. Generate QR at qr-code-generator.com\n\n` +
+                        `All 13 fights • Records • Backgrounds • Styles`;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = event.currentTarget;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = `<i class="fa-solid fa-check"></i> <span>Copied!</span>`;
+                setTimeout(() => {
+                    if (btn) btn.innerHTML = originalText;
+                    hideShareModal();
+                }, 1400);
+            }).catch(() => {
+                alert(text);
+                hideShareModal();
+            });
+        }
+        
+        // Add subtle animation to fight cards on load
+        function animateCards() {
+            const cards = document.querySelectorAll('.fight-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(15px)';
+                
+                setTimeout(() => {
+                    card.style.transition = `all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 60}ms`;
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 180);
+            });
+        }
+        
+        // Keyboard support
+        function setupKeyboard() {
+            document.addEventListener('keydown', function(e) {
+                if (e.key === "?" && document.activeElement.tagName === "BODY") {
+                    e.preventDefault();
+                    const firstFight = document.querySelector('.fight-card');
+                    if (firstFight) firstFight.scrollIntoView({ behavior: "smooth", block: "center" });
+                }
+            });
+            
+            // Easter egg: press "U" for UFC chant
+            let uCount = 0;
+            document.addEventListener('keypress', function(e) {
+                if (e.key.toLowerCase() === 'u') {
+                    uCount++;
+                    if (uCount >= 3) {
+                        uCount = 0;
+                        const header = document.querySelector('header');
+                        header.style.transition = 'all 0.3s';
+                        header.style.boxShadow = '0 0 40px #e11d48';
+                        setTimeout(() => {
+                            header.style.boxShadow = 'none';
+                        }, 900);
+                    }
+                }
+            });
+        }
+        
+        // Boot everything
+        function init() {
+            initializeTailwind();
+            animateCards();
+            setupKeyboard();
+            
+            // Add touch feedback for mobile
+            const cards = document.querySelectorAll('.fight-card');
+            cards.forEach(card => {
+                card.addEventListener('touchstart', () => {
+                    card.style.transform = 'scale(0.985)';
+                }, {passive: true});
+                
+                card.addEventListener('touchend', () => {
+                    card.style.transform = '';
+                });
+            });
+            
+            // Show a tiny toast on first load
+            setTimeout(() => {
+                const toast = document.createElement('div');
+                toast.className = `fixed bottom-5 left-1/2 -translate-x-1/2 bg-zinc-800 text-xs px-4 py-2 rounded-3xl border border-zinc-700 flex items-center gap-x-2 shadow-2xl z-50`;
+                toast.innerHTML = `<span>👊 Tap any fight card to focus</span>`;
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.transition = 'all 0.4s';
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translate(-50%, 20px)';
+                    setTimeout(() => toast.remove(), 400);
+                }, 2600);
+            }, 4200);
+            
+            console.log('%c[UFC 328] Mobile site initialized successfully', 'color:#3f3f46');
+        }
+        
+        window.onload = init;
+    </script>
+</body>
+</html>
