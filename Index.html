@@ -9,10 +9,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap');
         
-        :root {
-            --ufc-red: #e11d48;
-        }
-        
         body {
             font-family: 'Inter', system_ui, sans-serif;
             background: #09090b;
@@ -50,10 +46,6 @@
             background: linear-gradient(to bottom, #fbbf24, #f59e0b);
             width: 5px;
             opacity: 1;
-        }
-
-        .fight-header {
-            transition: all 0.2s ease;
         }
 
         .details-panel {
@@ -109,14 +101,19 @@
             color: #fda4af;
             border-radius: 4px;
         }
+
+        .flag {
+            font-size: 1.15rem;
+            margin-right: 5px;
+            vertical-align: middle;
+        }
     </style>
 </head>
 <body class="text-zinc-200">
-    <!-- Top Navigation / Header -->
+    <!-- Header -->
     <header class="bg-zinc-950 border-b border-zinc-800 sticky top-0 z-50">
         <div class="max-w-3xl mx-auto px-5 py-4 flex items-center justify-between">
             <div class="flex items-center gap-x-4">
-                <!-- UFC Logo -->
                 <div class="flex items-center gap-x-2">
                     <div class="w-9 h-9 bg-gradient-to-br from-red-600 to-rose-600 rounded-2xl flex items-center justify-center shadow-inner">
                         <span class="text-white text-2xl font-black tracking-tighter">UFC</span>
@@ -176,10 +173,10 @@
                 <div class="flex-1 h-px bg-gradient-to-l from-transparent via-red-600/60 to-red-600"></div>
             </div>
 
-            <!-- Fight 1: Title Fight - Chimaev vs Strickland -->
+            <!-- Chimaev vs Strickland -->
             <div onclick="toggleCard(this)" class="ufc-card title-fight bg-zinc-900 border border-yellow-500/30 rounded-3xl p-5 mb-4 cursor-pointer shadow-xl">
                 <div class="flex items-center justify-between mb-4">
-                    <div class="flex items-center gap-x-2">
+                    <div>
                         <span class="px-4 py-1 text-xs font-extrabold tracking-widest bg-gradient-to-r from-yellow-400 to-amber-500 text-black rounded-2xl flex items-center gap-x-1.5">
                             <i class="fa-solid fa-globe fa-xs"></i>
                             <span>WORLD MIDDLEWEIGHT TITLE</span>
@@ -194,13 +191,13 @@
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-y-4 items-center">
                     <div class="md:col-span-2">
                         <div class="flex items-baseline gap-x-2">
-                            <span class="fighter-name text-2xl">Khamzat Chimaev</span>
+                            <span class="fighter-name text-2xl">Khamzat Chimaev <span class="flag">🇷🇺</span></span>
                         </div>
                         <div class="flex items-center gap-x-2 mt-0.5">
                             <span class="text-rose-400 font-mono text-sm">"Borz"</span>
                             <span class="stat-pill bg-emerald-500/10 text-emerald-400">15-0</span>
                         </div>
-                        <div class="text-[10px] text-zinc-400 mt-1">Allstars Training Center • Chechnya/UAE</div>
+                        <div class="text-[10px] text-zinc-400 mt-1">Allstars Training Center • Chechnya</div>
                     </div>
                     
                     <div class="md:col-span-1 flex justify-center">
@@ -211,7 +208,7 @@
                     
                     <div class="md:col-span-2 md:text-right">
                         <div class="flex md:justify-end items-baseline gap-x-2">
-                            <span class="fighter-name text-2xl">Sean Strickland</span>
+                            <span class="fighter-name text-2xl">Sean Strickland <span class="flag">🇺🇸</span></span>
                         </div>
                         <div class="flex md:justify-end items-center gap-x-2 mt-0.5">
                             <span class="stat-pill bg-emerald-500/10 text-emerald-400">30-7</span>
@@ -249,7 +246,7 @@
                 </div>
             </div>
 
-            <!-- Fight 2: Flyweight Title -->
+            <!-- Van vs Taira -->
             <div onclick="toggleCard(this)" class="ufc-card title-fight bg-zinc-900 border border-yellow-500/30 rounded-3xl p-5 mb-4 cursor-pointer shadow-xl">
                 <div class="flex items-center justify-between mb-4">
                     <div>
@@ -265,7 +262,7 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-5 gap-y-4 items-center">
                     <div class="md:col-span-2">
-                        <div class="fighter-name text-2xl">Joshua Van</div>
+                        <div class="fighter-name text-2xl">Joshua Van <span class="flag">🇲🇲</span></div>
                         <div class="flex items-center gap-x-2 mt-0.5">
                             <span class="text-rose-400 font-mono text-sm">"The Fearless"</span>
                             <span class="stat-pill bg-emerald-500/10 text-emerald-400">16-2</span>
@@ -280,7 +277,7 @@
                     </div>
                     
                     <div class="md:col-span-2 md:text-right">
-                        <div class="fighter-name text-2xl">Tatsuro Taira</div>
+                        <div class="fighter-name text-2xl">Tatsuro Taira <span class="flag">🇯🇵</span></div>
                         <div class="flex md:justify-end items-center gap-x-2 mt-0.5">
                             <span class="text-rose-400 font-mono text-sm">"The Best"</span>
                             <span class="stat-pill bg-emerald-500/10 text-emerald-400">18-1</span>
@@ -312,7 +309,7 @@
                 </div>
             </div>
 
-            <!-- Non-title Main Card fights -->
+            <!-- Volkov vs Cortes-Acosta -->
             <div onclick="toggleCard(this)" class="ufc-card bg-zinc-900 border border-zinc-700 rounded-3xl p-5 mb-4 cursor-pointer">
                 <div class="flex items-center justify-between mb-3">
                     <span class="px-3 py-1 text-xs font-bold bg-zinc-700 text-white rounded-xl">HEAVYWEIGHT</span>
@@ -320,12 +317,12 @@
                 </div>
                 <div class="flex justify-between items-center">
                     <div>
-                        <div class="font-bold">Alexander Volkov <span class="text-xs text-rose-400">"Drago"</span></div>
+                        <div class="font-bold">Alexander Volkov <span class="flag">🇷🇺</span> <span class="text-xs text-rose-400">"Drago"</span></div>
                         <span class="stat-pill bg-emerald-500/10 text-emerald-400 text-xs">39-11</span>
                     </div>
                     <div class="text-red-600 font-black text-xl">VS</div>
                     <div class="text-right">
-                        <div class="font-bold">Waldo Cortes-Acosta <span class="text-xs text-rose-400">"Salsa Boy"</span></div>
+                        <div class="font-bold">Waldo Cortes-Acosta <span class="flag">🇩🇴</span> <span class="text-xs text-rose-400">"Salsa Boy"</span></div>
                         <span class="stat-pill bg-emerald-500/10 text-emerald-400 text-xs">17-2</span>
                     </div>
                 </div>
@@ -335,6 +332,7 @@
                 </div>
             </div>
 
+            <!-- Brady vs Buckley -->
             <div onclick="toggleCard(this)" class="ufc-card bg-zinc-900 border border-zinc-700 rounded-3xl p-5 mb-4 cursor-pointer">
                 <div class="flex items-center justify-between mb-3">
                     <span class="px-3 py-1 text-xs font-bold bg-zinc-700 text-white rounded-xl">WELTERWEIGHT</span>
@@ -342,12 +340,12 @@
                 </div>
                 <div class="flex justify-between items-center">
                     <div>
-                        <div class="font-bold">Sean Brady</div>
+                        <div class="font-bold">Sean Brady <span class="flag">🇺🇸</span></div>
                         <span class="stat-pill bg-emerald-500/10 text-emerald-400 text-xs">18-2</span>
                     </div>
                     <div class="text-red-600 font-black text-xl">VS</div>
                     <div class="text-right">
-                        <div class="font-bold">Joaquin Buckley</div>
+                        <div class="font-bold">Joaquin Buckley <span class="flag">🇺🇸</span></div>
                         <span class="stat-pill bg-emerald-500/10 text-emerald-400 text-xs">21-7</span>
                     </div>
                 </div>
@@ -357,6 +355,7 @@
                 </div>
             </div>
 
+            <!-- Green vs Stephens -->
             <div onclick="toggleCard(this)" class="ufc-card bg-zinc-900 border border-zinc-700 rounded-3xl p-5 mb-4 cursor-pointer">
                 <div class="flex items-center justify-between mb-3">
                     <span class="px-3 py-1 text-xs font-bold bg-zinc-700 text-white rounded-xl">LIGHTWEIGHT</span>
@@ -364,12 +363,12 @@
                 </div>
                 <div class="flex justify-between items-center">
                     <div>
-                        <div class="font-bold">Bobby "King" Green</div>
+                        <div class="font-bold">Bobby "King" Green <span class="flag">🇺🇸</span></div>
                         <span class="stat-pill bg-emerald-500/10 text-emerald-400 text-xs">34-17-1 (1 NC)</span>
                     </div>
                     <div class="text-red-600 font-black text-xl">VS</div>
                     <div class="text-right">
-                        <div class="font-bold">Jeremy "Lil Heathen" Stephens</div>
+                        <div class="font-bold">Jeremy "Lil Heathen" Stephens <span class="flag">🇺🇸</span></div>
                         <span class="stat-pill bg-emerald-500/10 text-emerald-400 text-xs">29-22 (1 NC)</span>
                     </div>
                 </div>
@@ -392,16 +391,15 @@
             </div>
 
             <div class="space-y-2.5">
-                <!-- Prelim fights -->
                 <div onclick="toggleCard(this)" class="ufc-card bg-zinc-900 border border-zinc-700 rounded-3xl p-4 cursor-pointer">
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-xs px-2.5 py-0.5 bg-zinc-700 rounded font-bold">MIDDLEWEIGHT</span>
-                            <div class="mt-1 font-semibold">Ateba Gautier <span class="text-emerald-400 text-xs">(10-1)</span></div>
+                            <div class="mt-1 font-semibold">Ateba Gautier <span class="flag">🇨🇲</span> <span class="text-emerald-400 text-xs">(10-1)</span></div>
                         </div>
                         <div class="text-center px-2"><span class="text-red-500 font-black text-sm">VS</span></div>
                         <div class="text-right">
-                            <div class="font-semibold">Ozzy Diaz <span class="text-emerald-400 text-xs">(10-3)</span></div>
+                            <div class="font-semibold">Ozzy Diaz <span class="flag">🇺🇸</span> <span class="text-emerald-400 text-xs">(10-3)</span></div>
                         </div>
                     </div>
                     <div class="details-panel mt-4 pt-4 border-t border-zinc-700 text-xs text-zinc-300">Gautier: Tall explosive KO artist from Cameroon with boxing/wrestling. Diaz: Well-rounded regional veteran (USA).</div>
@@ -411,11 +409,11 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-xs px-2.5 py-0.5 bg-zinc-700 rounded font-bold">WELTERWEIGHT</span>
-                            <div class="mt-1 font-semibold">Joel Alvarez <span class="text-emerald-400 text-xs">(23-3)</span></div>
+                            <div class="mt-1 font-semibold">Joel Alvarez <span class="flag">🇪🇸</span> <span class="text-emerald-400 text-xs">(23-3)</span></div>
                         </div>
                         <div class="text-center px-2"><span class="text-red-500 font-black text-sm">VS</span></div>
                         <div class="text-right">
-                            <div class="font-semibold">Yaroslav Amosov <span class="text-emerald-400 text-xs">(29-1)</span></div>
+                            <div class="font-semibold">Yaroslav Amosov <span class="flag">🇺🇦</span> <span class="text-emerald-400 text-xs">(29-1)</span></div>
                         </div>
                     </div>
                     <div class="details-panel mt-4 pt-4 border-t border-zinc-700 text-xs text-zinc-300">Alvarez: Tall BJJ-heavy grappler with high sub rate (Spain). Amosov: Elite wrestling/sambo, former Bellator welterweight champion (Ukraine).</div>
@@ -425,11 +423,11 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-xs px-2.5 py-0.5 bg-zinc-700 rounded font-bold">LIGHTWEIGHT</span>
-                            <div class="mt-1 font-semibold">Grant Dawson <span class="text-emerald-400 text-xs">(23-3-1)</span></div>
+                            <div class="mt-1 font-semibold">Grant Dawson <span class="flag">🇺🇸</span> <span class="text-emerald-400 text-xs">(23-3-1)</span></div>
                         </div>
                         <div class="text-center px-2"><span class="text-red-500 font-black text-sm">VS</span></div>
                         <div class="text-right">
-                            <div class="font-semibold">Mateusz Rebecki <span class="text-emerald-400 text-xs">(20-4)</span></div>
+                            <div class="font-semibold">Mateusz Rebecki <span class="flag">🇵🇱</span> <span class="text-emerald-400 text-xs">(20-4)</span></div>
                         </div>
                     </div>
                     <div class="details-panel mt-4 pt-4 border-t border-zinc-700 text-xs text-zinc-300">Dawson: Strong wrestling & top control grappler with high finish rate (USA). Rebecki: Well-rounded tough Polish prospect.</div>
@@ -439,11 +437,11 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-xs px-2.5 py-0.5 bg-zinc-700 rounded font-bold">LIGHTWEIGHT</span>
-                            <div class="mt-1 font-semibold">Jim Miller <span class="text-emerald-400 text-xs">(38-19)</span></div>
+                            <div class="mt-1 font-semibold">Jim Miller <span class="flag">🇺🇸</span> <span class="text-emerald-400 text-xs">(38-19)</span></div>
                         </div>
                         <div class="text-center px-2"><span class="text-red-500 font-black text-sm">VS</span></div>
                         <div class="text-right">
-                            <div class="font-semibold">Jared Gordon <span class="text-emerald-400 text-xs">(21-8)</span></div>
+                            <div class="font-semibold">Jared Gordon <span class="flag">🇺🇸</span> <span class="text-emerald-400 text-xs">(21-8)</span></div>
                         </div>
                     </div>
                     <div class="details-panel mt-4 pt-4 border-t border-zinc-700 text-xs text-zinc-300">Miller: UFC LW legend (most fights/wins in division history). Veteran submission specialist (21+ subs). Gordon: Well-rounded tough grinder with heart.</div>
@@ -453,11 +451,11 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-xs px-2.5 py-0.5 bg-zinc-700 rounded font-bold">MIDDLEWEIGHT</span>
-                            <div class="mt-1 font-semibold">Roman Kopylov <span class="text-emerald-400 text-xs">(14-5)</span></div>
+                            <div class="mt-1 font-semibold">Roman Kopylov <span class="flag">🇷🇺</span> <span class="text-emerald-400 text-xs">(14-5)</span></div>
                         </div>
                         <div class="text-center px-2"><span class="text-red-500 font-black text-sm">VS</span></div>
                         <div class="text-right">
-                            <div class="font-semibold">Marco Tulio <span class="text-emerald-400 text-xs">(14-2)</span></div>
+                            <div class="font-semibold">Marco Tulio <span class="flag">🇧🇷</span> <span class="text-emerald-400 text-xs">(14-2)</span></div>
                         </div>
                     </div>
                     <div class="details-panel mt-4 pt-4 border-t border-zinc-700 text-xs text-zinc-300">Kopylov: Southpaw KO artist (12 KOs) with combat sambo background (Russia). Tulio: Athletic Brazilian prospect with strong grappling/striking mix.</div>
@@ -467,11 +465,11 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-xs px-2.5 py-0.5 bg-zinc-700 rounded font-bold">FEATHERWEIGHT</span>
-                            <div class="mt-1 font-semibold">Pat Sabatini <span class="text-emerald-400 text-xs">(21-5)</span></div>
+                            <div class="mt-1 font-semibold">Pat Sabatini <span class="flag">🇺🇸</span> <span class="text-emerald-400 text-xs">(21-5)</span></div>
                         </div>
                         <div class="text-center px-2"><span class="text-red-500 font-black text-sm">VS</span></div>
                         <div class="text-right">
-                            <div class="font-semibold">William Gomis <span class="text-emerald-400 text-xs">(15-3)</span></div>
+                            <div class="font-semibold">William Gomis <span class="flag">🇸🇳</span> <span class="text-emerald-400 text-xs">(15-3)</span></div>
                         </div>
                     </div>
                     <div class="details-panel mt-4 pt-4 border-t border-zinc-700 text-xs text-zinc-300">Sabatini: BJJ specialist with high submission wins and strong wrestling (USA). Gomis: Well-rounded athletic finisher (Senegal/France).</div>
@@ -481,11 +479,11 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-xs px-2.5 py-0.5 bg-zinc-700 rounded font-bold">MIDDLEWEIGHT</span>
-                            <div class="mt-1 font-semibold">Baisangur Susurkaev <span class="text-emerald-400 text-xs">(11-0)</span></div>
+                            <div class="mt-1 font-semibold">Baisangur Susurkaev <span class="flag">🇷🇺</span> <span class="text-emerald-400 text-xs">(11-0)</span></div>
                         </div>
                         <div class="text-center px-2"><span class="text-red-500 font-black text-sm">VS</span></div>
                         <div class="text-right">
-                            <div class="font-semibold">Djorden Santos <span class="text-emerald-400 text-xs">(11-2)</span></div>
+                            <div class="font-semibold">Djorden Santos <span class="flag">🇧🇷</span> <span class="text-emerald-400 text-xs">(11-2)</span></div>
                         </div>
                     </div>
                     <div class="details-panel mt-4 pt-4 border-t border-zinc-700 text-xs text-zinc-300">Susurkaev: Undefeated Chechen prospect with strong wrestling/grappling (DWCS alum). Santos: Brazilian with grappling + striking power.</div>
@@ -495,11 +493,11 @@
                     <div class="flex items-center justify-between">
                         <div>
                             <span class="text-xs px-2.5 py-0.5 bg-zinc-700 rounded font-bold">FLYWEIGHT</span>
-                            <div class="mt-1 font-semibold">Clayton Carpenter <span class="text-emerald-400 text-xs">(8-2)</span></div>
+                            <div class="mt-1 font-semibold">Clayton Carpenter <span class="flag">🇺🇸</span> <span class="text-emerald-400 text-xs">(8-2)</span></div>
                         </div>
                         <div class="text-center px-2"><span class="text-red-500 font-black text-sm">VS</span></div>
                         <div class="text-right">
-                            <div class="font-semibold">Jose Ochoa <span class="text-emerald-400 text-xs">(8-2, 1 NC)</span></div>
+                            <div class="font-semibold">Jose Ochoa <span class="flag">🇵🇪</span> <span class="text-emerald-400 text-xs">(8-2, 1 NC)</span></div>
                         </div>
                     </div>
                     <div class="details-panel mt-4 pt-4 border-t border-zinc-700 text-xs text-zinc-300">Carpenter: Well-rounded flyweight prospect with balanced grappling/striking (USA). Ochoa: Athletic striker/grappler, tough regional veteran (Peru/USA).</div>
@@ -524,17 +522,14 @@
         function toggleCard(element) {
             const isExpanded = element.classList.contains('expanded');
             
-            // Close all other cards
             document.querySelectorAll('.ufc-card').forEach(card => {
                 if (card !== element) {
                     card.classList.remove('expanded');
                 }
             });
             
-            // Toggle this card
             element.classList.toggle('expanded');
             
-            // Optional: scroll into view when expanding on mobile
             if (!isExpanded) {
                 setTimeout(() => {
                     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -542,7 +537,6 @@
             }
         }
 
-        // Easter egg: triple tap header for fun
         let tapCount = 0;
         const header = document.querySelector('header');
         if (header) {
@@ -558,7 +552,6 @@
             });
         }
 
-        // Keyboard accessibility
         document.addEventListener('keydown', function(e) {
             if (e.key === '/' && document.activeElement.tagName === 'BODY') {
                 e.preventDefault();
@@ -567,7 +560,7 @@
             }
         });
 
-        console.log('%c[UFC 328] Polished mobile site loaded successfully. Tap cards to expand.', 'color:#3f3f46; font-size:9px');
+        console.log('%c[UFC 328] Polished mobile site with country flags loaded successfully.', 'color:#3f3f46; font-size:9px');
     </script>
 </body>
 </html>
